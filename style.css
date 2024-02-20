@@ -110,11 +110,7 @@ header {
   /* max-width: 100%; */
   background-size: cover;
 }
-.card-front {
-  /* background-color: aquamarine; */
-  /* background-image: url(40dd38d31dc6c40c72d651cab11d2659.jpg); */
-  /* background-size: contain; */
-}
+
 .card-back {
   /* background-color: dimgray; */
   transform: rotateY(180deg);
@@ -203,6 +199,6 @@ header {
  transform: translateX(350px) translateY(-40px); 
 }
 .card.fly-in {
-  transform: translateY(350px) translateX(-40px) rotate(45deg); 
+  transform: translateY(-1000px) translateX(-600px) rotate(45deg); 
 
 }

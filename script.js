@@ -1,4 +1,9 @@
-console.log("object");
+let pepe = setInterval(miFuncion,1000);
+
+function miFuncion() {
+  console.log("hola");
+  console.log("me voy");
+}
 
 const cardObjectDefinitions = [
   { id: 1, imagePath: "images/cmm-154-drown-in-sorrow (1).png" },
@@ -70,7 +75,7 @@ function endRound() {
     } else {
       startRound();
     }
-  }, 3000);
+  }, 2000);
 }
 
 function chooseCard(card) {
@@ -163,7 +168,12 @@ function loadGame() {
 
   cards = document.querySelectorAll(".card");
 
+  cardFlyInEffect();
+
   playGameButtonElem.addEventListener("click", () => startGame());
+
+  updateStatusElement(scoreContainerElem, "none");
+  updateStatusElement(roundContainerElem, "none");
 }
 
 function startGame() {
@@ -261,21 +271,21 @@ function flipCards(flipToBack) {
 
 //Shuffle cards -------------------------------------------
 function cardFlyInEffect() {
-  const id = setInterval(flytIn,5)
+  const id = setInterval(flyIn, 50);
 
-  let cardCount = 0
+  let cardCount = 0;
 
-  let count = 0
+  let count = 0;
 
-  function flytIn() {
-    count++
+  function flyIn() {
+    count++;
     if (cardCount == numCards) {
-      clearInterval(id)
+      clearInterval(id);
     }
-    if (count == 1 || count == 250 || count == 500 || count == 750) {
-      cardCount++
-      let card = document.getElementById(cardCount)
-      
+    if (count == 1 || count == 25 || count == 50 || count == 75) {
+      cardCount++;
+      let card = document.getElementById(cardCount);
+      card.classList.remove("fly-in");
     }
   }
 }
@@ -395,6 +405,9 @@ function createCard(cardItem) {
   //Agrega clase y id a la carta
   addClassToElement(cardElem, "card");
   addIdToElement(cardElem, cardItem.id);
+
+  //Agrega clase de animación inicial a la carta
+  addClassToElement(cardElem, "fly-in")
 
   //Agrega clase al interior de la carta
   addClassToElement(cardInnerElem, "card-inner");
