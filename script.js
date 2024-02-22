@@ -10,6 +10,7 @@ const cardObjectDefinitions = [
   { id: 2, imagePath: "images/cmr-113-corpse-churn.png" },
   { id: 3, imagePath: "images/cmr-115-crow-of-dark-tidings.png" },
   { id: 4, imagePath: "images/cmr-147-revenant.png" },
+  { id: 5, imagePath: "images/cmr-147-revenant.png" },
 ];
 
 const aceId = 4;
@@ -178,8 +179,7 @@ function loadGame() {
 
 function startGame() {
   initializeNewGame();
-  startRound();
-  alert("pepe");
+  startRound(); 
 }
 function initializeNewGame() {
   score = 0;
@@ -266,7 +266,7 @@ function flipCards(flipToBack) {
     setTimeout(() => {
       flipCard(card, flipToBack);
     }, index * 100);
-  });
+  }); 
 }
 
 //Shuffle cards -------------------------------------------
@@ -348,7 +348,7 @@ function randomizeCardPositions() {
   cardPositions[random1 - 1] = cardPositions[random2 - 1];
   cardPositions[random2 - 1] = temp;
 }
-
+    
 //Deal Cards ----------------------------------------------------
 function dealCards() {
   addCardsToAppropiateCell();
@@ -457,12 +457,10 @@ function initializeCardPositions(card) {
   cardPositions.push(card.id);
 }
 function createElement(elemType) {
-  console.log("Estoy creando un " + elemType);
   return document.createElement(elemType);
 }
 
 function addClassToElement(elem, className) {
-  console.log(`Estoy agregando ${className} a ${elem}`);
   elem.classList.add(className);
 }
 
